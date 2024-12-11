@@ -1,0 +1,82 @@
+{{! -- Citation for the following page:
+Date: 12/02/2024
+Based on: CS 340 nodejs starter app
+Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app --}}
+
+
+{{! -- Citation for the nav bar:
+Date: 12/0/2024
+Copied from: Bootstrap documentation
+Source URL: https://getbootstrap.com/docs/5.3/components/navbar/ --}}
+<html>
+
+<head>
+    <title>Dunder Mifflin</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark  sticky-top navbar-expand-lg align-middle">
+        <div class="container-fluid">
+            <a class="navbar-brand">Dunder Mifflin</a>
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active current-page" aria-current="page"
+                        href="/">Home</a>
+                    <a class="nav-link" href="/customers">Customers</a>
+                    <a class="nav-link" href="/employees">Employees</a>
+                    <a class="nav-link" href="/branches">Branches</a>
+                    <a class="nav-link" href="/departments">Departments</a>
+                    <a class="nav-link" href="/invoices">Invoices</a>
+                    <a class="nav-link" href="/invoice_items">Invoice Items</a>
+                    <a class="nav-link" href="/products">Products</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container info">
+
+        <div class="border rounded my-5 p-3 shadow-sm">
+            
+        <h2 class=" page-name mt-3 mb-3 ">Limitless Paper in a Paperless World</h2>
+            <h4 class="pt-3 pb-2 form-name">About this website:</h4>
+            <p>This database management system is designed for the use of
+                Dunder
+                Mifflin employees to manage Customers, Sales, and Products
+                effectively.
+                The following tables may be found within the database:
+            </p>
+
+            <ul>
+                <li><strong>Customers</strong> contains customer contact
+                    information, and information on the customer's branch and
+                    Dunder Mifflin sales representative.</li>
+                <li><strong>Employees:</strong> contains employee contact,
+                    department, and branch information.</li>
+                <li><strong>Branches:</strong> contains each Dunder Mifflin
+                    branch,
+                    with each branche's address and main phone number.</li>
+                <li><strong>Departments:</strong> a list of departments within
+                    Dunder Mifflin.</li>
+                <li><Strong>Invoices:</strong> a record of each sale completed,
+                    with
+                    customer and employee information included.</li>
+                <li><strong>Invoice Items:</strong> maintains a record of each
+                    product included on a particular invoice.</li>
+                <li><strong>Products:</strong> contains information about the
+                    products sold by Dunder Mifflin. </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

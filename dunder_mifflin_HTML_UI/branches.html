@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Branches</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Branches</h1>
+
+[ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="branches.html">Branches</a> | 
+<a href="departments.html">Departments</a> | <a href="invoices.html">Invoices</a> | <a href="invoiceItems.html">Invoice Items</a> | <a href="products.html">Products</a>]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Branches</strong></p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>address</th>
+    <th>phone</th>
+  </tr>
+  <tr>
+    <td align="right" >1</td>
+    <td>Corporate</td>
+    <td>193 8th St., Unit 1372, New York, New York 10001</td>
+    <td>212-012-2935</td>
+  </tr>
+  <tr>
+    <td align="right" >2</td>
+    <td>Scranton</td>
+    <td>216 E 19th Ave, Unit 305, Scranton, PA 18503</td>
+    <td>570-392-2934</td>
+  </tr>
+  <tr>
+    <td align="right" >3</td>
+    <td>Nashua</td>
+    <td>8321 S Wilson Ave, Unit 206, Nashua, NH 03060</td>
+    <td>603-776-3891</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addBranch">
+        <legend><strong>Add Branch</strong></legend>
+          <fieldset class="fields">
+            <label> Name </label> <input type="text" name="name">
+            <label> Address </label> <input type="text" name="address">
+            <label> Phone </label> <input type="text" name="phone">
+      </fieldset>
+          <input class="btn" type="submit" id="addEmployee" value="Add Branch">
+          <input class="btn" type="button" value="cancel">
+	</form> 
+</div><!-- insert -->
+
+
+</body>
+</html>

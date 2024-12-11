@@ -1,0 +1,83 @@
+:root {
+    --first: #001b2eff;
+    --second: #294c60ff;
+    --third: #D8DBE2;
+    --fourth: #b0bf1a;
+    --fifth: #7f534bff;
+}
+
+
+input[type=submit] {
+    background: var(--first);
+    border: var(--first);
+    color: white;
+}
+
+input[type=submit]:hover {
+    background: var(--fourth);
+
+    color: white;
+}
+
+nav {
+    background: var(--first);
+
+
+}
+
+.page-header {
+    background: linear-gradient(to left, var(--third), #F5F5F5);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+.page-name {
+
+    color: black;
+}
+
+table {
+    border-radius: 5px;
+
+}
+
+
+.current-page {
+    color: white;
+    background: var(--fourth);
+}
+
+.navbar {
+    height: 50px;
+
+}
+
+.nav-link {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 7px;
+
+}
+
+.navbar-nav {
+    background: var(--first);
+    color: var(--first);
+    padding-left: 5px;
+    padding-right: 5px;
+
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.table-div {
+    margin-top: 35px;
+    margin-bottom: 30px;
+    overflow-x: scroll;
+}
+
+.form-group {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}

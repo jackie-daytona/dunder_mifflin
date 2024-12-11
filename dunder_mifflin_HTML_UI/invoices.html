@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Departments</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Invoices</h1>
+
+[ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="branches.html">Branches</a> | <a href="departments.html">Departments</a> | 
+<a href="invoices.html">Invoices</a> | <a href="invoiceItems.html">Invoice Items</a> | <a href="products.html">Products</a>]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Invoices</strong></p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Invoice ID</th>
+    <th>Timestamp</th>
+    <th>Customer</th>
+    <th>Branch</th>
+    <th>Item Quantity</th>
+    <th>Total Price</th>
+  </tr>
+  <tr>
+    <td align="right" >1</td>
+    <td>2024-08-17 15:23:09</td>
+    <td>Blue Cross Scranton</td>
+    <td>Scranton</td>
+    <td>30</td>
+    <td>457.81</td>
+
+  </tr>
+  <tr>
+    <td align="right" >2</td>
+    <td>2024-09-09 10:05:41</td>
+    <td>Blue Cross Scranton</td>
+    <td>Scranton</td>
+    <td>21</td>
+    <td>289.43</td>
+  </tr>
+  <tr>
+    <td align="right" >3</td>
+    <td>2024-09-19 8:45:36</td>
+    <td>Vance Refrigeration</td>
+    <td>Scranton</td>
+    <td>11</td>
+    <td>156.74</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form method="POST" id="addInvoice">
+        <legend><strong>Add Invoice</strong></legend>
+          <fieldset class="fields">
+            <label> Customer </label> <select name="customer">
+            	<option value="0">&nbsp;</option>
+                <option value="1">Blue Cross Scranton</option>
+                <option value="2">Cooper's Seafood House</option>
+                <option value="3">Vance Refrigeration</option>
+                </select>
+            <label> Branch </label> <select name="branch">
+            	<option value="0">&nbsp;</option>
+                <option value="1">Corporate</option>
+                <option value="2">Scranton</option>
+                <option value="3">Nashua</option>
+                </select>
+            <label> Item Quantity </label> <input type="text" name="itemQuantity">
+            <label> Total Price </label> <input type="text" name="totalPrice">
+      </fieldset>
+          <input class="btn" type="submit" id="addInvoice" value="Add Invoice">
+          <input class="btn" type="button" value="Cancel">
+	</form> 
+</div><!-- insert -->
+</body>
+</html>

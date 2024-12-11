@@ -1,0 +1,96 @@
+{{! -- Citation for the following page:
+Date: 12/02/2024
+Based on: CS 340 nodejs starter app
+Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app --}}
+
+
+{{! -- Citation for the nav bar:
+Date: 12/0/2024
+Copied from: Bootstrap documentation
+Source URL: https://getbootstrap.com/docs/5.3/components/navbar/ --}}
+
+<nav class="navbar navbar-dark  sticky-top navbar-expand-lg align-middle">
+    <div class="container-fluid">
+        <a class="navbar-brand">Dunder Mifflin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/customers">Customers</a>
+                <a class="nav-link" href="/employees">Employees</a>
+                <a class="nav-link" href="/branches">Branches</a>
+                <a class="nav-link active current-page" aria-current="page"
+                    href="/departments">Departments</a>
+                <a class="nav-link" href="/invoices">Invoices</a>
+                <a class="nav-link" href="/invoice_items">Invoice Items</a>
+                <a class="nav-link" href="/products">Products</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+{{!-- Create a departments table --}}
+<div class="container">
+
+    <div class="row border rounded  p-3 shadow-sm table-div">
+        <h2 class=" page-name mt-3 mb-3 ">Departments</h2>
+        <table class="table" id="departments-table">
+
+            {{!-- Header section --}}
+            <thead>
+                <tr>
+                    {{#each data.[0]}}
+                    <th>
+                        {{@key}}
+                    </th>
+                    {{/each}}
+                </tr>
+            </thead>
+
+            {{!-- Body section --}}
+            <tbody>
+                {{#each data}}
+                <tr data-value={{this.departmentID}}>
+                    <td>{{this.departmentID}}</td>
+                    <td>{{this.name}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    {{!-- Form to add a record to the table --}}
+    <div class="row">
+        <div class="col-6">
+            <div
+                class="container border rounded py-2 px-4 mt-2 mb-3 shadow-sm">
+
+                <h4 class="pt-3 pb-2 form-name">Add a Department:</h4>
+
+                <form id="add-department-form-ajax">
+                    <div class="form-group">
+                        <label for="input-name">Department Name: </label>
+                        <input type="text" name="input-name"
+                            class="form-control" id="input-name">
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit"
+                            class="btn btn-primary my-4 px-5 mx-auto">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-6"></div>
+    </div>
+</div>
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX
+request
+--}}
+<script src="./js/add_department.js"></script>

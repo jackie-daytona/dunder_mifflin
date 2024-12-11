@@ -1,0 +1,236 @@
+{{! -- Citation for the following page:
+Date: 12/02/2024
+Based on: CS 340 nodejs starter app
+Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app --}}
+
+
+{{! -- Citation for the nav bar:
+Date: 12/0/2024
+Copied from: Bootstrap documentation
+Source URL: https://getbootstrap.com/docs/5.3/components/navbar/ --}}
+
+<nav class="navbar navbar-dark  sticky-top navbar-expand-lg align-middle">
+    <div class="container-fluid">
+        <a class="navbar-brand">Dunder Mifflin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link active current-page" aria-current="page"
+                    href="/customers">Customers</a>
+                <a class="nav-link" href="/employees">Employees</a>
+                <a class="nav-link" href="/branches">Branches</a>
+                <a class="nav-link" href="/departments">Departments</a>
+                <a class="nav-link" href="/invoices">Invoices</a>
+                <a class="nav-link" href="/invoice_items">Invoice Items</a>
+                <a class="nav-link" href="/products">Products</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+{{!-- Create a Customers table --}}
+
+<div class="container">
+
+    <div class="row border rounded  p-3 shadow-sm table-div">
+        <h2 class=" page-name mt-3 mb-3 ">Customers</h2>
+        <table class="table" id="customers-table">
+
+            {{!-- Header section --}}
+            <thead>
+                <tr>
+                    {{#each data.[0]}}
+                    <th>
+                        {{@key}}
+                    </th>
+                    {{/each}}
+                    <th></th>
+                </tr>
+            </thead>
+
+            {{!-- Body section --}}
+            <tbody>
+                {{#each data}}
+                <tr data-value={{this.customerID}}>
+                    <td>{{this.customerID}}</td>
+                    <td>{{this.businessName}}</td>
+                    <td>{{this.representativeName}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.address}}</td>
+                    <td>{{this.employee}}</td>
+                    <td>{{this.branch}}</td>
+                    <td><button class="btn btn-outline-secondary btn-sm"
+                            onclick="deleteCustomer({{this.customerID}})">Delete</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <script src="./js/delete_customer.js"></script>
+
+
+    {{!-- Form to add a record to the table --}}
+
+    <div class="row">
+        <div class="col-6">
+            <div
+                class="container border rounded py-2 px-4 mt-2 mb-3 shadow-sm">
+
+                <h4 class="pt-3 pb-2 form-name">Add a Customer:</h4>
+
+                <form id="add-customer-form-ajax">
+
+                    <div class="form-group">
+                        <label for="input-name">Business Name: </label>
+                        <input type="text" name="input-name" id="input-name"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-rep">Representative Name: </label>
+                        <input type="text" name="input-rep" id="input-rep"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-email">Email: </label>
+                        <input type="text" name="input-email" id="input-email"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-phone">Phone: </label>
+                        <input type="text" name="input-phone" id="input-phone"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-address">Address: </label>
+                        <input type="text" name="input-address"
+                            id="input-address" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-employee">Employee: </label>
+                        <select name="input-employee" class="form-select"
+                            id="input-employee">
+                            <option>Select an Employee</option>
+                            {{#each employees}}
+                            <option value="{{this.employeeID}}">{{this.name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-branch">Branch: </label>
+                        <select name="input-branch" class="form-select"
+                            id="input-branch">
+                            <option>Select a Branch</option>
+                            {{#each branches}}
+                            <option value="{{this.branchID}}">{{this.name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit"
+                            class="btn btn-primary my-4 px-5 mx-auto">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {{!-- Embed our javascript to handle the DOM manipulation and AJAX
+        request
+        --}}
+        <script src="./js/add_customer.js"></script>
+
+        {{!-- Form to update a record in the table --}}
+
+        <div class="col-6">
+            <div
+                class="container border rounded py-2 px-4 mt-2 mb-4 shadow-sm">
+                <h4 class="pt-3 pb-2 form-name">Update A Customer:</h4>
+                <form id="update-customer-form-ajax">
+
+                    <div class="form-group">
+                        <label for="select-name">Business Name: </label>
+                        <select name="select-name" id="select-name"
+                            class="form-select">
+                            <option value="no_selection">Select a Business</option>
+                            {{#each data}}
+                            <option value="{{this.customerID}}">{{this.businessName}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-rep-update">Representative: </label>
+                        <input type="text" name="input-rep-update"
+                            id="input-rep-update" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-email-update">Email: </label>
+                        <input type="text" name="input-email-update"
+                            id="input-email-update" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-phone-update">Phone: </label>
+                        <input type="text" name="input-phone-update"
+                            id="input-phone-update" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-address-update">Address: </label>
+                        <input type="text" name="input-address-update"
+                            class="form-control" id="input-address-update">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-employee">DM Employee: </label>
+                        <select name="select-employee" id="select-employee"
+                            class="form-select">
+                            <option value="no_selection">Select a DM Employee</option>
+                            {{#each employees}}
+                            <option value="{{this.employeeID}}">{{this.name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-branch">Branch: </label>
+                        <select name="select-branch" id="select-branch"
+                            class="form-select">
+                            <option value="no_selection">Select a Branch</option>
+                            {{#each branches}}
+                            <option value="{{this.branchID}}">{{this.name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit"
+                            class="btn btn--primary my-4 px-5 mx-auto">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/update_customer.js"></script>

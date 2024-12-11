@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>Customers</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Customers</h1>
+
+[ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="branches.html">Branches</a> | 
+<a href="departments.html">Departments</a> | <a href="invoices.html">Invoices</a> | <a href="invoiceItems.html">Invoice Items</a> | <a href="products.html">Products</a>]
+<div id="browse" style="display: block">
+<p><strong>Browse Customers</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>ID</th>
+    <th>Business Name</th>
+    <th>Representative Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Branch</th>
+    <th>DM Rep</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Blue Cross Scranton</td>
+    <td>Katie Rhys</td>
+    <td>krhys@bluecrossscranton.com</td>
+    <td>570-491-0341 ext. 747</td>
+    <td>923 W Spruce St., Scranton, PA 18503</td>
+    <td>Scranton</td>
+    <td>Jim Halpert</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >2</td>
+    <td >Cooper's Seafood House</td>
+    <td>Darren Patton</td>
+    <td>darren@coopers.com</td>
+    <td>570-275-2088</td>
+    <td>701 N Washington Ave, Scranton, PA 18509</td>
+    <td>Scranton</td>
+    <td>Jim Halpert</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >3</td>
+    <td>Vance Refrigeration</td>
+    <td>Ned Wesley</td>
+    <td>nedw@smithpeterson.com</td>
+    <td>570-642-0119 ext. 102</td>
+    <td>216 E 19th Ave, Unit 204, Scranton, PA 18503</td>
+    <td>Scranton</td>
+    <td>Phyllis Lapin-Vance</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addCustomer">
+        <legend><strong>Add Customer</strong></legend>
+          <fieldset class="fields">
+            <label> Business Name </label> <input type="text" name="businessName">
+            <label> Representative Name </label> <input type="text" name="representativeName">
+            <label> Email </label> <input type="text" name="email">
+            <label> Phone </label> <input type="text" name="phone">
+            <label> Address </label> <input type="text" name="address">
+            <label> Branch </label> <input type="text" name="branchID">
+            <label> DM Rep </label> <input type="text" name="employeeID">
+          </fieldset>
+          <input class="btn" type="submit" id="addCustomer" value="Add a Customer">
+          <input class="btn" type="button" value="Cancel">
+	</form> <!--add new Customer-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateCustomer">
+      <legend><strong>Update Customer</strong></legend>
+      <fieldset class="fields">
+          <label>ID:</label> 1
+          <label> Business Name </label> <input type="text" name="businessName">
+          <label> Representative Name </label> <input type="text" name="representativeName">
+          <label> Email </label> <input type="text" name="email">
+          <label> Phone </label> <input type="text" name="phone">
+          <label> Address </label> <input type="text" name="address">
+          <label> Branch </label> <input type="text" name="branchID">
+          <label> DM Rep </label> <input type="text" name="employeeID">
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveCustomer" value="Save Update Customer">
+          <input class="btn" type="button" value="Cancel" >
+  </form> 
+</div><!-- update -->
+
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteCustomer">
+      <legend><strong>Delete Customer</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>ID:</label> 1
+            <label> Name </label> Blue Cross Scranton
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteCustomer" value="Delete Customer">
+          <input class="btn" type="button" value="Cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

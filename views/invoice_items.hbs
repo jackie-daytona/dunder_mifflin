@@ -1,0 +1,208 @@
+{{! -- Citation for the following page:
+Date: 12/02/2024
+Based on: CS 340 nodejs starter app
+Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app --}}
+
+
+{{! -- Citation for the nav bar:
+Date: 12/0/2024
+Copied from: Bootstrap documentation
+Source URL: https://getbootstrap.com/docs/5.3/components/navbar/ --}}
+
+<nav class="navbar navbar-dark  sticky-top navbar-expand-lg align-middle">
+
+    <div class="container-fluid">
+        <a class="navbar-brand">Dunder Mifflin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/customers">Customers</a>
+                <a class="nav-link" href="/employees">Employees</a>
+                <a class="nav-link" href="/branches">Branches</a>
+                <a class="nav-link" href="/departments">Departments</a>
+                <a class="nav-link" href="/invoices">Invoices</a>
+                <a class="nav-link active current-page" aria-current="page"
+                    href="/invoice_items">Invoice Items</a>
+                <a class="nav-link" href="/products">Products</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row page-header">
+        <h2 class="pt-1 pb-1 page-name mt-3 mb-3 ms-3">Invoice Items</h2>
+    </div>
+
+    <div class="row border rounded my-5 p-3 shadow-sm">
+        <table class="table" id="invoice-items-table">
+
+            {{!-- Header section --}}
+            <thead>
+                <tr>
+                    {{#each data.[0]}}
+                    <th>
+                        {{@key}}
+                    </th>
+                    {{/each}}
+                    <th></th>
+                </tr>
+            </thead>
+
+            {{!-- Body section --}}
+            <tbody>
+                {{#each data}}
+                <tr data-value={{this.invoiceItemID}}>
+                    <td>{{this.invoiceItemID}}</td>
+                    <td>{{this.invoiceID}}</td>
+                    <td>{{this.productID}}</td>
+                    <td>{{this.itemQuantity}}</td>
+                    <td>{{this.unitPrice}}</td>
+                    <td>{{this.lineTotal}}</td>
+                    <td><button class="btn btn-outline-secondary btn-sm"
+                            onclick="deleteInvoiceItem({{this.invoiceItemID}})">Delete</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <script src="./js/delete_invoice_item.js"></script>
+
+    {{!-- Form to add a record to the table --}}
+        <div class="row">
+        <div class="col-6">
+            <div
+                class="container border rounded py-2 px-4 mt-2 mb-3 shadow-sm">
+
+                <h4 class="pt-3 pb-2 form-name">Add an Invoice Item:</h4>
+
+                <form id="add-invoice-item-form-ajax">
+
+                    <div class="form-group">
+                        <label for="select-invoice">Invoice ID: </label>
+                        <select name="select-invoice" id="select-invoice"
+                            class="form-select">
+                            <option value="no_selection">Select an Invoice</option>
+                            {{#each invoices}}
+                            <option value="{{this.invoiceID}}">{{this.invoiceID}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-product">Product Name: </label>
+                        <select name="select-product" id="select-product"
+                            class="form-select">
+                            <option value="no_selection">Select a Product</option>
+                            {{#each products}}
+                            <option value="{{this.productID}}">{{this.name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-item-quantity">Item Quantity: </label>
+                        <input type="text" name="input-item-quantity" id="input-item-quantity"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-unit-price">Unit Price: </label>
+                        <input type="text" name="input-unit-price" id="input-unit-price"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-line-total">Line Total: </label>
+                        <input type="text" name="input-line-total"
+                            id="input-line-total" class="form-control">
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit"
+                            class="btn btn-primary my-4 px-5 mx-auto">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="./js/add_invoice_item.js"></script>
+
+        {{!-- update form --}}
+        <div class="col-6">
+            <div class="container border rounded py-2 px-4 mt-2 mb-4 shadow-sm">
+                <h4 class="pt-3 pb-2 form-name">Update An Invoice Item:</h4>
+                <form id="update-invoice-item-form-ajax">
+                    <div class="form-group">
+                        <label for="select-invoice-item">Invoice Item ID: </label>
+                        <select name="select-invoice-item" id="select-invoice-item"
+                            class="form-select">
+                            <option value="no_selection">Select an Invoice Item</option>
+                            {{#each data}}
+                            <option value="{{this.invoiceItemID}}">{{this.invoiceItemID}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="select-invoice-update">Invoice ID: </label>
+                        <select name="select-invoice-update" id="select-invoice-update"
+                            class="form-select">
+                            <option value="no_selection">Select an Invoice</option>
+                            {{#each invoices}}
+                            <option value="{{this.invoiceID}}">{{this.invoiceID}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-product-update">Product Name: </label>
+                        <select name="select-product-update" id="select-product-update"
+                            class="form-select">
+                            <option value="no_selection">Select a Product</option>
+                            {{#each products}}
+                            <option value="{{this.productID}}">{{this.name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-item-quantity-update">Item Quantity: </label>
+                        <input type="text" name="input-item-quantity-update" id="input-item-quantity-update"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-unit-price-update">Unit Price: </label>
+                        <input type="text" name="input-unit-price-update" id="input-unit-price-update"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-line-total-update">Line Total: </label>
+                        <input type="text" name="input-line-total-update"
+                            id="input-line-total-update" class="form-control">
+                    </div>
+
+                    <div class="form-group text-center">
+                        <input type="submit"
+                            class="btn btn--primary my-4 px-5 mx-auto">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+<script src="./js/update_invoice_item.js"></script>
+

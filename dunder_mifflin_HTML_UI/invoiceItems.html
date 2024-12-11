@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Invoice Items</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Invoice Items</h1>
+
+[ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="branches.html">Branches</a> | <a href="departments.html">Departments</a> | 
+<a href="invoices.html">Invoices</a> | <a href="invoiceItems.html">Invoice Items</a> | <a href="products.html">Products</a>]
+
+<div id="browse" style="display: block">
+<p><strong>Browse Invoice Items</strong></p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>Invoice Item ID</th>
+    <th>Invoice ID</th>
+    <th>Product ID</th>
+    <th>Item Quantity</th>
+    <th>Unit Price</th>
+    <th>Line Total</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >5</td>
+    <td>7.99</td>
+    <td>39.95</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >2</td>
+    <td align="right" >2</td>
+    <td align="right" >2</td>
+    <td align="right" >2</td>
+    <td>15.97</td>
+    <td>31.94</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >3</td>
+    <td align="right" >2</td>
+    <td align="right" >3</td>
+    <td align="right" >3</td>
+    <td>10.99</td>
+    <td>10.99</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+
+<div id="insert" style="display: block">
+    <form method="POST" id="addInvoiceItem">
+        <legend><strong>Add Invoice Item</strong></legend>
+          <fieldset class="fields">
+            <label> Invoice ID </label> <input type="text" name="invoiceID">
+            <label> Product ID </label> <select name="productID">
+            	<option value="0">&nbsp;</option>
+                <option value="1">Copy paper, white, 8.5" x 11" (500 sheets)</option>
+                <option value="2">Manila Folders, 8.5" x 11", (100 ct.)</option>
+                <option value="3">Permanent Markers, fine tip (12 ct.)</option>
+                </select>
+            <label> Item Quantity </label> <input type="text" name="itemQuantity">
+            <label> Unit Price </label> <input type="text" name="unitPrice">
+            <label> Line Total </label> <input type="text" name="lineTotal">
+      </fieldset>
+          <input class="btn" type="submit" id="addInvoiceItem" value="Add Invoice Item">
+          <input class="btn" type="button" value="Cancel" onClick="browseInvoiceItems()">
+	</form> 
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="UpdateInvoiceItem">
+        <legend><strong>Update Invoice Item</strong></legend>
+            <fieldset class="fields">
+                <input type="hidden" name="invoiceItemID" id="updateInvoiceItemID" value="1">
+                <label> Invoice ID </label> <input type="text" name="invoiceID">
+                <label> Product ID </label> <select name="productID">
+            	    <option value="0">&nbsp;</option>
+                    <option value="1">Copy paper, white, 8.5" x 11" (500 sheets)</option>
+                    <option value="2">Manila Folders, 8.5" x 11", (100 ct.)</option>
+                    <option value="3">Permanent Markers, fine tip (12 ct.)</option>
+                </select>
+                <label> Item Quantity </label> <input type="text" name="itemQuantity">
+                <label> Unit Price </label> <input type="text" name="unitPrice">
+                <label> Line Total </label> <input type="text" name="lineTotal">
+            </fieldset>
+          <input class="btn" type="submit" id="UpdateSaveInvoiceItem" value="Update Invoice Item">
+          <input class="btn" type="button" value="Cancel">
+	</form> 
+</div><!-- update -->
+
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteInvoiceItem">
+      <legend><strong>Delete Invoice Item</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <input type="hidden" name="invoiceItemID" id="deleteInvoiceItemID" value="1">
+          <label><strong> Invoice ID:</strong></label> 1
+            <label> <strong>Product Name:</strong> </label> Copy paper, white, 8.5" x 11" (500 sheets)
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteInvoiceItem" value="Delete Invoice Item">
+          <input class="btn" type="button" value="Cancel">
+  </form> 
+</div><!-- delete -->
+
+</body>
+</html>
+

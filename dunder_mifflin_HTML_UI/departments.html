@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Departments</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Departments</h1>
+
+[ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="branches.html">Branches</a> | <a href="departments.html">Departments</a> | 
+<a href="invoices.html">Invoices</a> | <a href="invoiceItems.html">Invoice Items</a> | <a href="products.html">Products</a>]
+
+<div id="browse" style="display: block">
+  <p><strong>Browse Departments</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>id</th>
+    <th>name</th>
+  </tr>
+  <tr>
+    <td align="right" >1</td>
+    <td>Sales</td>
+  </tr>
+  <tr>
+    <td align="right" >2</td>
+    <td>Accounting</td>
+  </tr>
+  <tr>
+    <td align="right" >3</td>
+    <td>HR</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addDepartment">
+        <legend><strong>Add Department</strong></legend>
+          <fieldset class="fields">
+            <label> Name </label> <input type="text" name="name">
+      </fieldset>
+          <input class="btn" type="submit" id="addEmployee" value="Add Department">
+          <input class="btn" type="button" value="cancel">
+	</form> 
+</div><!-- insert -->
+</body>
+</html>

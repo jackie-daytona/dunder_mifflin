@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>Employees</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Employees</h1>
+
+[ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> | <a href="branches.html">Branches</a> | <a href="departments.html">Departments</a> | 
+<a href="invoices.html">Invoices</a> | <a href="invoiceItems.html">Invoice Items</a> | <a href="products.html">Products</a>]
+
+<div id="browse" style="display: block">
+  <p><strong>Browse Employees</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>id</th>
+    <th>name</th>
+    <th>email</th>
+    <th>phone</th>
+    <th>branch</th>
+    <th>department</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Jim Halpert</td>
+    <td align="right" >jimhalpert@dundermifflin.com</td>
+    <td>570-392-2934 ext. 308</td>
+    <td>Scranton</td>
+    <td>Sales</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >2</td>
+    <td >Kevin Malone</td>
+    <td align="right" >kevinmalone@dundermifflin.com</td>
+    <td>570-392-2934 ext. 201</td>
+    <td>Scranton</td>
+    <td>Accounting</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >3</td>
+    <td >Holly Flax</td>
+    <td align="right" >hollyflax@dundermifflin.com</td>
+    <td>603-776-3891 ext. 348</td>
+    <td>Nashua</td>
+    <td>HR</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >4</td>
+    <td >Phyllis Lapin-Vance</td>
+    <td align="right" >phyllislapin@dundermifflin.com</td>
+    <td>570-392-2934 ext. 307</td>
+    <td>Scranton</td>
+    <td>Sales</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addEmployee">
+        <legend><strong>Add Employee</strong></legend>
+          <fieldset class="fields">
+            <label> Name </label> <input type="text" name="name">
+            <label> Email </label> <input type="text" name="email">
+            <label> Phone </label> <input type="text" name="phone">
+            <label> Branch </label> <select name="branch">
+            	<option value="0">&nbsp;</option>
+                <option value="1">Corporate</option>
+                <option value="2">Scranton</option>
+                <option value="3">Nashua</option>
+                </select>
+            <label> Department </label> <select name="department">
+              <option value="0">&nbsp;</option>
+                <option value="1">Sales</option>
+                <option value="2">Accounting</option>
+                <option value="3">HR</option>
+                </select>
+      </fieldset>
+          <input class="btn" type="submit" id="addEmployee" value="Add Employee">
+          <input class="btn" type="button" value="Cancel">
+	</form> 
+</div><!-- insert -->
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="UpdateEmployee">
+        <legend><strong>Update Employee</strong></legend>
+          <fieldset class="fields">
+          <input type="hidden" name="EmployeeID" id="updateEmployeeID" value="1">
+          <label> ID: </label> 1
+            <label> Name </label> <input type="text" name="name">
+            <label> Email </label> <input type="text" name="email">
+            <label> Phone </label> <input type="text" name="phone">
+            <label> Branch </label> <select name="branch">
+            	<option value="0">&nbsp;</option>
+                <option value="1">Corporate</option>
+                <option value="2">Scranton</option>
+                <option value="3">Nashua</option>
+                </select>
+            <label> Department </label> <select name="department">
+              <option value="0">&nbsp;</option>
+                <option value="1">Sales</option>
+                <option value="2">Accounting</option>
+                <option value="3">HR</option>
+                </select>
+      </fieldset>
+          <input class="btn" type="submit" id="UpdateSaveEmployee" value="Update Employee">
+          <input class="btn" type="button" value="Cancel">
+	</form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <input type="hidden" name="EmployeeID" id="deleteEmployeeID" value="1">
+          <label><strong>ID:</strong></label> 1
+            <label> <strong>Name:</strong> </label> Jim Halpert
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
+          <input class="btn" type="button" value="cancel">
+  </form> 
+</div><!-- delete -->
+
+</body>
+</html>
