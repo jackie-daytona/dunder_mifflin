@@ -1,6 +1,6 @@
 # Dunder Mifflin Inventory & Sales Management App
 
-A full-stack CRUD web application for managing Dunder Mifflin’s internal operations, including branches, employees, customers, invoices, and products.
+A full-stack CRUD web application for managing Dunder Mifflin’s internal operations, including branches, employees, customers, invoices, and products. Built with Paige Knickerbocker for CS340: Intro to Databases.
 
 ## Tech Stack
 
